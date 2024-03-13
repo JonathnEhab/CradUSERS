@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation.xml"
+    app:startDestination="@id/addUserInfoFragment">
+
+    <fragment
+        android:id="@+id/addUserInfoFragment"
+        android:name="com.example.ui.addUserFragment.AddUserInfoFragment"
+        android:label="fragment_add_user_info"
+        tools:layout="@layout/fragment_add_user_info" >
+        <action
+            android:id="@+id/action_addUserInfoFragment_to_showUserDataFragment"
+            app:destination="@id/showUserDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showUserDataFragment"
+        android:name="com.example.ui.showUserData.ShowUserDataFragment"
+        android:label="fragment_show_user_data"
+        tools:layout="@layout/fragment_show_user_data" >
+        <action
+            android:id="@+id/action_showUserDataFragment_to_editUserInfoFragment"
+            app:destination="@id/editUserInfoFragment" />
+        <action
+            android:id="@+id/action_showUserDataFragment_to_addUserInfoFragment"
+            app:destination="@id/addUserInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editUserInfoFragment"
+        android:name="com.example.ui.editUserInfo.EditUserInfoFragment"
+        android:label="fragment_edit_user_info"
+        tools:layout="@layout/fragment_edit_user_info" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <action
+            app:popUpTo="@id/showUserDataFragment"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_editUserInfoFragment_to_showUserDataFragment"
+            app:destination="@id/showUserDataFragment" />
+    </fragment>
+</navigation>
